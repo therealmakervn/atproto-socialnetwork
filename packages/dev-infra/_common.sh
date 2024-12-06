@@ -31,12 +31,12 @@ export_pg_env() {
   export PGUSER=pg
   export PGPASSWORD=password
   export PGDATABASE=postgres
-  export DB_POSTGRES_URL="postgresql://pg:password@127.0.0.1:5433/postgres"
+  export DB_POSTGRES_URL="${DB_POSTGRES_URL:-postgresql://pg:password@127.0.0.1:5433/postgres}"
 }
 
 # Exports redis environment variables
 export_redis_env() {
-  export REDIS_HOST="127.0.0.1:6380"
+  export REDIS_HOST="${REDIS_HOST:-127.0.0.1:6380}"
 }
 
 pg_clear() {
