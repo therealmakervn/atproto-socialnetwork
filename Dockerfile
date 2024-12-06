@@ -21,6 +21,3 @@ RUN make build
 
 # Expose port (nếu cần thiết)
 EXPOSE 2583 2584 2587 60636
-
-# Lệnh chạy ứng dụng ở chế độ dev-env
-CMD ["make", "run-dev-env"]
