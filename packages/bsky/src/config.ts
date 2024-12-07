@@ -54,6 +54,8 @@ export class ServerConfig {
   constructor(private cfg: ServerConfigValues) {}
 
   static readEnv(overrides?: Partial<ServerConfigValues>) {
+    console.log("check envvvvvv: ", process.env);
+    
     const version = process.env.BSKY_VERSION || undefined
     const debugMode = process.env.NODE_ENV !== 'production'
     const publicUrl = process.env.BSKY_PUBLIC_URL || undefined
