@@ -1,15 +1,14 @@
 # Base image với Node.js 18
 FROM node:18.17.0
 
-# Cài đặt Bash và các công cụ cần thiết
+# Cài đặt các công cụ cần thiết (không cần Bash)
 RUN apt-get update && apt-get install -y \
-    bash \
     jq \
     git \
     && apt-get clean
 
-# Đặt Bash làm shell mặc định
-SHELL ["/bin/bash", "-c"]
+# Shell mặc định là /bin/sh (không cần khai báo)
+# SHELL ["/bin/sh", "-c"]
 
 # Cài đặt pnpm
 RUN npm install -g pnpm
@@ -23,7 +22,7 @@ COPY . .
 # Cài đặt dependencies
 RUN pnpm install --frozen-lockfile
 
-# Build dự án
+# Build dự án (nếu `make` script dùng cú pháp Bash thì cần sửa `Makefile`)
 RUN make deps && make build
 
 # Cổng cần expose (tuỳ thuộc vào ứng dụng)
