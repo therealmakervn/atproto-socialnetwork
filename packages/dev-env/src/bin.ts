@@ -14,6 +14,8 @@ const run = async () => {
 
 [ created by Bluesky ]`)
 
+  console.log("check envvvvvv: ", process.env);
+    
   const network = await TestNetwork.create({
     pds: {
       port: 2583,
