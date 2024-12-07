@@ -1,9 +1,10 @@
 # Base image với Node.js 18
 FROM node:18.17.0
 
-# Cài đặt Bash và các công cụ cần thiết
+# Cài đặt Bash, PostgreSQL client, jq, git và các công cụ cần thiết
 RUN apt-get update && apt-get install -y \
     bash \
+    postgresql-client \
     jq \
     git \
     && apt-get clean
